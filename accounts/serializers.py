@@ -34,3 +34,13 @@ class CustomUserSerializer(serializers.ModelSerializer):
             name=validated_data.get('name', ''),
             role=validated_data.get('role', CustomUser.Roles.STUDENT)
         )
+
+
+class SigninSerializers(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+    
+    
+class ChangePasswordSerializers(serializers.Serializer):
+    old_password = serializers.CharField()
+    new_password = serializers.CharField()
